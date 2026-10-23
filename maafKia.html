@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maaf Ya, Kia Sayang ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            width: 100%;
+            max-width: 400px;
+            padding: 30px 24px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 10px 35px #b8326555;
+            position: relative;
+            z-index: 2;
+        }
+
+        .heart {
+            font-size: 65px;
+            animation: beat 1s infinite;
+        }
+
+        h1 {
+            color: #ff4081;
+            font-size: 27px;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        button {
+            background: #ff4081;
+            color: white;
+            border: none;
+            padding: 13px 22px;
+            border-radius: 30px;
+            font-size: 15px;
+            cursor: pointer;
+            margin-top: 12px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #e91e63;
+            transform: scale(1.05);
+        }
+
+        #pesan {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff0f5;
+            border-radius: 15px;
+            color: #d6336c;
+        }
+
+        .floating {
+            position: absolute;
+            bottom: -30px;
+            animation: naik 7s linear infinite;
+            opacity: 0.7;
+            z-index: 1;
+        }
+
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        @keyframes naik {
+            from {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.8;
+            }
+            to {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <div class="heart">❤️</div>
+
+        <h1>Maafin Aku Ya, Kia Sayang 🥺</h1>
+
+        <p>
+            Sayang, aku mau minta maaf soal yang semalam,
+            aku mendadak minta izin ke kamu.
+            Padahal aku udah janji bakalan chatan ama kamu
+            sesudahnya tahlilan,
+            eh aku malah izin lagi main basket,
+            kamu pasti kecewa karena aku ingkar janji
+        </p>
+
+        <p>
+            Aku bikin kamu nunggu lama, eh akunya malah ngilang lagi,
+            maaf ya sayang
+        </p>
+
+        <button onclick="bukaPesan()">
+            Buka Pesan Rahasia 💌
+        </button>
+
+        <div id="pesan">
+            <h3>Untuk Malaikat kesayanganku Kia❤️</h3>
+            Aku sayang kamu. Maaf ya kalau aku bikin kamu
+            kecewa. Aku nggak mau cuma bilang maaf,
+            aku juga mau berusaha memperbaiki kesalahanku.
+
+            <br><br>
+            Kalau kamu masih sedih, nggak apa-apa.
+            Aku hargai perasaanmu.
+            Kalau kamu sudah siap, aku ingin kita ngobrol baik-baik.
+            aku ingin kamu tetap bersamaku
+
+            <br><br>
+            <strong>I love you, Kia sayang. ❤️</strong>
+        </div>
+    </div>
+
+    <script>
+        function bukaPesan() {
+            const pesan = document.getElementById("pesan");
+
+            if (pesan.style.display === "block") {
+                pesan.style.display = "none";
+            } else {
+                pesan.style.display = "block";
+            }
+        }
+
+        function buatHati() {
+            const hati = document.createElement("div");
+
+            hati.className = "floating";
+            hati.textContent = ["❤️", "💕", "💗", "💖"][
+                Math.floor(Math.random() * 4)
+            ];
+
+            hati.style.left = Math.random() * 100 + "vw";
+            hati.style.fontSize = (15 + Math.random() * 25) + "px";
+            hati.style.animationDuration = (4 + Math.random() * 5) + "s";
+
+            document.body.appendChild(hati);
+
+            setTimeout(() => hati.remove(), 9000);
+        }
+
+        setInterval(buatHati, 500);
+    </script>
+
+</body>
+</html>
